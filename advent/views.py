@@ -28,7 +28,7 @@ class CalendarView(View):
 			gift = Calendar.objects.get(name = name, date = today)
 		else:
 			gift = Calendar.objects.last()
-		return render(request, "advent/present.html", {"name": name.upper(), "gift": gift, "date": "{month} / {day}".format(month = now.month, day = now.day)})
+		return render(request, "advent/present.html", {"name": name.capitalize(), "gift": gift, "date": "{month} / {day}".format(month = now.month, day = now.day)})
 	
 	def post(self, request, name):
 		now = datetime.datetime.now()
@@ -36,4 +36,4 @@ class CalendarView(View):
 		if(gift.opened == False):
 			gift.opened = True
 			gift.save()
-		return JsonResponse({'gift': gift.gift, 'opened': gift.opened})
+		return JsonResponse({'gift': gift.gift, 'opened': gift.opened, 'gift_type': gift.gift_type})

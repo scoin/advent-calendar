@@ -12,20 +12,34 @@
 <div class = "container">
 	<div class = "left"></div>
 	<div class = "gift">
-		<h2>{{date}}</h2>
-		{%if gift.opened == False %}
-		<img class = "box" src = "{% static "gift-box.png" %}">
-		<div class = "message">
-		Click on the box to open your gift!
+		<div class = "date">
+			<h2>Today is {{date}}!</h2>
 		</div>
+		{%if gift.opened == False %}
+			<div class = "box">
+				<img src = "{% static "gift-box.png" %}">
+			</div>
+			<div class = "description">
+			</div>
+			<div class = "message">
+				Click on the box to open your gift!
+			</div>
 		{%else%}
-		<img class = "box" src = "{% static "box_open.png" %}">
+			<div class = "box">
+				<img src = "{% static "box_open.png" %}">
+			</div>
 		<div class = "description">
 		<h2>{{gift.gift}}</h2>
 		</div>
-		<div class = "message2">
-		You opened your gift! Now make sure to get it from me!<br>
-		Don't forget your gift tomorrow!"
+		<div class = "message">
+		You opened your gift! 
+		{%if gift.gift_type != "compliment"%}
+			Now make sure to get it from me!
+		{%else%}
+			I truly feel that way.
+		{%endif%}
+		<br>
+		Don't forget your gift tomorrow!
 		</div>
 		{%endif%}
 	</div>
