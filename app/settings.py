@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+ON_HEROKU = os.environ.get('ON_HEROKU')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -49,6 +49,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+
 ROOT_URLCONF = 'app.urls'
 
 WSGI_APPLICATION = 'app.wsgi.application'
@@ -59,12 +61,12 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
         'default': {  
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',  
-        'NAME': 'advent',  
-        'USER': 'django_user',  
-        'PASSWORD': 'python',  
-        'HOST': '127.0.0.1',  
-        'PORT': '5432',  
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',  
+            'NAME': 'advent',  
+            'USER': 'django_user',  
+            'PASSWORD': 'python',  
+            'HOST': '127.0.0.1',  
+            'PORT': '5432',  
         }  
 }  
 
@@ -82,14 +84,15 @@ USE_L10N = True
 USE_TZ = True
 
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+if(ON_HEROKU):
+    import dj_database_url
+    DATABASES['default'] =  dj_database_url.config()
 
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure()
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
+    # Allow all host headers
+    ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
 import os
