@@ -10,4 +10,4 @@ class Calendar(models.Model):
 	date = models.DateField()
 	gift = models.TextField()
 	gift_type = models.CharField(max_length = 30)
-
+	opened = models.BooleanField(default = False)

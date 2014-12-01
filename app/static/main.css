@@ -1,0 +1,42 @@
+html { 
+  background: url(background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container{
+	height: 80%;
+	width: 100%;
+}
+
+body{
+	color: white;
+}
+
+.left, .right, .gift{
+	width: 33.3%;
+	height: 100%;
+	float: left;
+}
+
+.left{
+	width: 20%;
+}
+
+.right{
+	width: 46.7%;
+}
+
+.gift{
+	text-align: center;
+}
+
+.box{
+	
+}
+
+header{
+	text-align: center;
+}
