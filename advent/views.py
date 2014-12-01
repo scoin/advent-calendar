@@ -25,14 +25,14 @@ class CalendarView(View):
 		now = datetime.datetime.now()
 		today = datetime.date(now.year, now.month, now.day)
 		if(today < datetime.date(2014, 12, 25)):
-			gift = Calendar.objects.get(date = today)
+			gift = Calendar.objects.get(name = name, date = today)
 		else:
 			gift = Calendar.objects.last()
 		return render(request, "advent/present.html", {"name": name.upper(), "gift": gift, "date": "{month} / {day}".format(month = now.month, day = now.day)})
 	
 	def post(self, request, name):
 		now = datetime.datetime.now()
-		gift = Calendar.objects.get(date = datetime.date(now.year, now.month, now.day))
+		gift = Calendar.objects.get(name = name, date = datetime.date(now.year, now.month, now.day))
 		if(gift.opened == False):
 			gift.opened = True
 			gift.save()
