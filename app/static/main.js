@@ -17,4 +17,15 @@ $(document).ready(function(){
 			}, 'json')
 		}
 	})
+
+	$('.day').click(function(e){
+		var that = this;
+		$.post(window.location.href, {'gift': $(that).attr('id')}, function(data){
+			if(!data['fail']){
+				var p = that.children[0].children[1];
+				$(p).remove();
+				$(that.children[0]).append("<p>"+data.gift+"</p>");
+			}
+		})
+	})
 })

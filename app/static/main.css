@@ -1,5 +1,5 @@
-html { 
-  background: url(background.jpg) no-repeat center center fixed; 
+html {
+  background: url(background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -34,10 +34,26 @@ body{
 	text-align: center;
 }
 
-.box{
-	
-}
-
 header{
 	text-align: center;
+}
+
+td.day{
+  border: 1px solid white;
+  text-align: center;
+  background-color: rgba(0,0,0,.4);
+}
+
+.day img{
+  width: 5em;
+}
+
+.gift_day{
+  margin: 1em auto;
+  width: 8em;
+  height: 8em;
+}
+
+.calendar{
+  margin: 0 auto;
 }

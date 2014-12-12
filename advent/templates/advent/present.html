@@ -33,7 +33,7 @@
 		<h2>{{gift.gift}}</h2>
 		</div>
 		<div class = "message">
-		You opened your gift! 
+		You opened your gift!
 		{%if gift.gift_type != "compliment"%}
 			Now make sure to get it from me!
 		{%else%}
@@ -41,6 +41,10 @@
 		{%endif%}
 		<br>
 		Don't forget your gift tomorrow!
+		</div>
+		<div class = "link">
+			<p></p>
+			<a href = "{%url 'advent:all' route_name%}"> View All Days</a>
 		</div>
 		{%endif%}
 	</div>

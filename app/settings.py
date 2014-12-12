@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mathfilters',
     'advent'
 )
 
@@ -60,15 +61,15 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
-        'default': {  
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',  
-            'NAME': 'advent',  
-            'USER': 'django_user',  
-            'PASSWORD': 'python',  
-            'HOST': '127.0.0.1',  
-            'PORT': '5432',  
-        }  
-}  
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'advent',
+            'USER': 'django_user',
+            'PASSWORD': 'python',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

@@ -1,0 +1,36 @@
+{% load staticfiles %}
+{% load mathfilters %}
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <link rel = "stylesheet" href = "{% static "main.css" %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src = "{% static "main.js" %}"></script>
+</head>
+<body>
+  <header>
+    <h1>Happy Advent {{name}}!</h1>
+  </header>
+  <div class = "container">
+      <div class = "date">
+        <h2>Today is {{today}}!</h2>
+      </div>
+      <table class = "calendar">
+      {%for gift in gifts %}
+      {%if forloop.counter0|mod:5 == 0%}
+      <tr>
+      {%endif%}
+      <td class = 'day' id = "{{gift.id}}">
+        <div class = "gift_day">
+        <p>{{gift.date}}<p>
+        {%if gift.opened == False %}
+        <img src = "{% static "gift-box.png" %}">
+        {%else%}
+        <p>{{gift.gift}}</p>
+        {%endif%}
+        </div>
+      </td>
+      {%endfor%}
+    </div>
+  </div>
+</body>
