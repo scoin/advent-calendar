@@ -8,6 +8,7 @@ import datetime
 
 class FrontPage(View):
 	def get(self, request):
+		print("I'm here!")
 		return render(request, "advent/login.html", {"form": UserForm()})
 	def post(self, request):
 		user = User.objects.filter(username = request.POST['username'])
