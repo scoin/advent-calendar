@@ -84,6 +84,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+import sys
+
 LOGGING = {
     'handlers': {
         'console':{
