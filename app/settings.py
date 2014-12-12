@@ -84,18 +84,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-import sys
-
-LOGGING = {
-    'handlers': {
-        'console':{
-            'level':'INFO',
-            'class':'logging.StreamHandler',
-            'stream': sys.stdout
-        },
-    }
-}
-
 # Parse database configuration from $DATABASE_URL
 if(ON_HEROKU):
     import dj_database_url
